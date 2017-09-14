@@ -38,23 +38,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final String[] lagosDev = new  String[]{"Shahid", "Saadata", "Abdulrahman", "Huzaifa"};
-
         String lagsoDevURI = "https://api.github.com/search/users?q=language:java+location:lagos";
         new GetLagosDevs().execute(lagsoDevURI);
-
-
-
     }
     class GetLagosDevs extends AsyncTask<String, Void, String>
     {
-
-
-
         @Override
         protected String doInBackground(String... strings) {
             ///TODO: Network call
-
             GetRequest getRequest = new GetRequest();
             String response = null;
             try {
@@ -62,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
 
             } catch (IOException e) {
                 e.printStackTrace();
-
             }
             try {
                 JSONObject object = new JSONObject(response);
@@ -87,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
         }
-
 
         @Override
         protected void onCancelled() {
@@ -123,14 +112,11 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
-
         }
     }
 
     private abstract class MyAdapter extends BaseAdapter {
-
         // override other abstract methods here
-
         @Override
         public View getView(int position, View convertView, ViewGroup container) {
             if (convertView == null) {
